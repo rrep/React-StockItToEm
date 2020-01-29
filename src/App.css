@@ -5,6 +5,7 @@ html {
 .App {
   text-align: center;
   background-color: #3e3e3e;
+  height: auto;
 }
 
 .App-logo {
@@ -54,3 +55,15 @@ html {
   padding-right: 30px;
 }
 
+.NewsFeed{
+  float: left;
+  background-color: #FFFFFf;
+  opacity: .1;
+  width: 300px;
+  height: 400px;
+}
+
+.NewsItem{
+  margin: 20px;
+  padding: 20px;
+}

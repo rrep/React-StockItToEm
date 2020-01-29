@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header'
 import SymbolSearch from './components/SymbolSearch'
 import Quote from './components/Quote'
+import NewsFeed from './components/NewsFeed';
 import './App.css';
+
 
 function App() {
 
   const [currentQuote, setCurrentQuote] = useState({});
+  const [newsItems, setNewsItems] = useState([]);
   
 
   const BASE_ALPHAVANTAGE_END_POINT = "https://www.alphavantage.co/query?function=";
@@ -35,12 +38,19 @@ function App() {
       }).catch((error)=>{
         console.log(`The following errors have arisen: ${error}`);
       });
+
+      setNewsItems([{"title":"A Barfing Man", "author":"Chips McDip"},
+        {"title":"Hotdog Fest, How many is too many?", "author":"Beets Silman"},
+        {"title":"Centipedes? In My V...", "author":"Morlikelee Thanyutheenk"}
+    ]);
+    console.log(newsItems);
     }
   }
 
   return (
     <div className="App">
       <Header/>
+      <NewsFeed newsItems={newsItems}></NewsFeed>
       <SymbolSearch searchClick={searchClick}/> 
       <br></br>
       <Quote currentQuote={currentQuote}/>
