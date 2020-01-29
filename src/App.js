@@ -9,19 +9,22 @@ function App() {
   const [currentQuote, setCurrentQuote] = useState({});
   
 
-  const BASE_END_POINT = "https://www.alphavantage.co/query?function=";
-  const API_KEY = "&apikey=KV2W4LMZHNA2CXTH";
-  const FUNCTION_QUERY = "GLOBAL_QUOTE"
+  const BASE_ALPHAVANTAGE_END_POINT = "https://www.alphavantage.co/query?function=";
+  const ALPHAV_API_KEY = "&apikey=KV2W4LMZHNA2CXTH";
+  const ALPHAV_FUNCTION_QUERY = "GLOBAL_QUOTE"
   
+  const BASE_NEWSAPI_END_POINT = "https://newsapi.org/v2/everything?q="; //add symbol from search
+  const BASE_NEWSAPI_KEY="from=2020-01-29&sortBy=popularity&apiKey=17b781dab8984272be12d4b8b3f6442d";
 
   
+
   const searchClick = (searchString) =>{
     if (searchString === ''){
       setCurrentQuote({});
     }
     else{
       const symbol = "&symbol="+searchString;
-      const stockQuoteEndPoint = `${BASE_END_POINT}${FUNCTION_QUERY}${symbol}${API_KEY}`;
+      const stockQuoteEndPoint = `${BASE_ALPHAVANTAGE_END_POINT}${ALPHAV_FUNCTION_QUERY}${symbol}${ALPHAV_API_KEY}`;
       console.log(stockQuoteEndPoint);
       fetch(stockQuoteEndPoint).then((response)=>{
         return response.json()
