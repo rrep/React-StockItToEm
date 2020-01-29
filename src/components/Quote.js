@@ -3,9 +3,11 @@ import React, { useState } from 'react'
 function Quote(props) {
 
     return(
-        <div></div>
+        <div>
+            {props.currentQuote["05. price"]}
+        </div>
 
-)
+    )
 }
 
 export default Quote;
