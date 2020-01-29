@@ -50,7 +50,7 @@ function App() {
   return (
 
     <div className="App container">
-      <Header/>
+      <Header />
       <NewsFeed newsItems={newsItems}></NewsFeed>
       <SymbolSearch searchClick={searchClick}/> 
       <br></br>
