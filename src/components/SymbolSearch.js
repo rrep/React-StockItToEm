@@ -15,7 +15,7 @@ function SymbolSearch(props) {
     }
 
     return (
-        <div>
+        <div className="search">
             <form onSubmit={onSubmit}>
                 <input
                     type="text"

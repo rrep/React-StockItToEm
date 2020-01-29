@@ -1,26 +1,13 @@
 html {
-  background-color: #3e3e3e;
+  background-image: url(./pexels-photo-241544.jpeg);
 }
 
 .App {
   text-align: center;
-  background-color: #3e3e3e;
   height: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #3e3e3e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -51,19 +38,21 @@ html {
   opacity: .9;
   color: #61dafb;
   margin: auto;
-  padding: 20px;
-  padding-right: 30px;
 }
 
 .NewsFeed{
   float: left;
-  background-color: #FFFFFf;
-  opacity: .1;
-  width: 300px;
-  height: 400px;
+  width: 20%;
+  height: auto;
 }
 
 .NewsItem{
   margin: 20px;
   padding: 20px;
+  background-color: #61dafb;
+}
+
+.search{
+  margin-top: 300px;
+
 }
