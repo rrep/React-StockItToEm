@@ -34,6 +34,7 @@ function App() {
     <div className="App">
       <Header/>
       <SymbolSearch searchClick={searchClick}/> 
+      <br></br>
       <Quote currentQuote={currentQuote}/>
     </div>
   );

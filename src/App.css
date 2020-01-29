@@ -1,5 +1,10 @@
+html {
+  background-color: #3e3e3e;
+}
+
 .App {
   text-align: center;
+  background-color: #3e3e3e;
 }
 
 .App-logo {
@@ -14,7 +19,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #3e3e3e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,10 +42,12 @@
   }
 }
 
-.Quote{
+.stockQuote{
   height: 100px;
   width: 100px;
-  background-color: #282c34;
+  background-color: #777777;
   color: #61dafb;
   margin: auto;
+  padding: 10px;
 }
+

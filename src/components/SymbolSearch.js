@@ -27,6 +27,7 @@ function SymbolSearch(props) {
                 <input
                     type="submit"
                     value="Submit"
+                    className="btn"
                 />
             </form>
         </div>
