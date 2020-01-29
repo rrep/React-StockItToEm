@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.Quote{
+  height: 100px;
+  width: 100px;
+  background-color: #282c34;
+  color: #61dafb;
+  margin: auto;
+}

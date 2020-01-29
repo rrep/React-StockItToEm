@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 function Quote(props) {
 
     return(
-        <div>
-            {props.currentQuote["05. price"]}
+        <div className="Quote">
+            {props.currentQuote!= null? props.currentQuote["05. price"]:null}
         </div>
 
     )
