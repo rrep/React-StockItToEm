@@ -16,18 +16,23 @@ function App() {
 
   
   const searchClick = (searchString) =>{
-    const symbol = "&symbol="+searchString;
-    const stockQuoteEndPoint = `${BASE_END_POINT}${FUNCTION_QUERY}${symbol}${API_KEY}`;
-    console.log(stockQuoteEndPoint);
-    fetch(stockQuoteEndPoint).then((response)=>{
-      return response.json()
-    }).then((currentStockTickerObject) => {
-      setCurrentQuote(currentStockTickerObject["Global Quote"]);
-      console.log(currentStockTickerObject);
-       // Get current Quote.
-    }).catch((error)=>{
-      console.log(`The following errors have arisen: ${error}`);
-    });
+    if (searchString === ''){
+      setCurrentQuote({});
+    }
+    else{
+      const symbol = "&symbol="+searchString;
+      const stockQuoteEndPoint = `${BASE_END_POINT}${FUNCTION_QUERY}${symbol}${API_KEY}`;
+      console.log(stockQuoteEndPoint);
+      fetch(stockQuoteEndPoint).then((response)=>{
+        return response.json()
+      }).then((currentStockTickerObject) => {
+        setCurrentQuote(currentStockTickerObject["Global Quote"]);
+        console.log(currentStockTickerObject);
+         // Get current Quote.
+      }).catch((error)=>{
+        console.log(`The following errors have arisen: ${error}`);
+      });
+    }
   }
 
   return (
