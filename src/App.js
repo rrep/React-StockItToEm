@@ -39,9 +39,9 @@ function App() {
         console.log(`The following errors have arisen: ${error}`);
       });
 
-      setNewsItems([{"title":"A Barfing Man", "author":"Chips McDip"},
+      setNewsItems([{"title":"A Sick Man", "author":"Chips McDip"},
         {"title":"Hotdog Fest, How many is too many?", "author":"Beets Silman"},
-        {"title":"Centipedes? In My V...", "author":"Morlikelee Thanyutheenk"}
+        {"title":"Centipedes? In My Hotdogs?", "author":"Morlikelee Thanyutheenk"}
     ]);
     console.log(newsItems);
     }
