@@ -4,7 +4,7 @@ import NewsItem from './NewsItem'
 function NewsFeed(props) {
     return(
         <div className="NewsFeed">
-            <h2>News Articles</h2>
+            {props.newsItems.length > 0?<h2>News Articles for {props.currentQuote["01. symbol"]}</h2>:null}
             {props.newsItems.map((item, i)=>
                 <div>
                     <br/>

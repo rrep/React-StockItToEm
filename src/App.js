@@ -51,10 +51,14 @@ function App() {
 
     <div className="App container">
       <Header />
-      <NewsFeed newsItems={newsItems}></NewsFeed>
-      <SymbolSearch searchClick={searchClick}/> 
-      <br></br>
-      <Quote currentQuote={currentQuote}/>
+      <section className="wrapper">
+        <NewsFeed newsItems={newsItems} currentQuote={currentQuote}></NewsFeed>
+        <div className ="main">
+        <SymbolSearch searchClick={searchClick}/> 
+        <br/>
+        <Quote currentQuote={currentQuote}/>
+        </div>
+      </section>
     </div>
   );
 }
