@@ -31,7 +31,8 @@ html {
 .NewsItem{
   margin: 10px;
   padding: 10px;
-  background-color: #61dafb;
+  background-color: #777777;
+  border-radius: 15px;
 }
 
 .news-section{
@@ -52,4 +53,5 @@ header {
   color: palegreen;
   font-style: italic;
   font-size: 24px;
+  margin-right: 20px;
 }
