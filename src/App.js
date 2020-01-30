@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Header from './components/Header'
-import SymbolSearch from './components/SymbolSearch'
-import Quote from './components/Quote'
+import React, { useState } from 'react';
+import Header from './components/Header';
+import SymbolSearch from './components/SymbolSearch';
+import Quote from './components/Quote';
 import NewsFeed from './components/NewsFeed';
+import HistoryGraph from './components/HistoryGraph';
 import './App.css';
 
 
@@ -62,11 +63,13 @@ function App() {
     <div className="App container">
       <Header />
       <section className="wrapper">
-        <NewsFeed newsItems={newsItems} currentSearch={currentSearch}></NewsFeed>
+        <NewsFeed newsItems={newsItems} currentSearch={currentSearch}/>
         <div className ="main">
           <SymbolSearch searchClick={searchClick}/> 
-          <br/>
+          <br/><br/>
           <Quote currentQuote={currentQuote}/>
+          <br/>
+          <HistoryGraph/>        
         </div>
       </section>
     </div>

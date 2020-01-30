@@ -5,7 +5,6 @@ function SymbolSearch(props) {
 
     const onChange = (e) => {
         setSearchString(e.target.value);
-        console.log(searchString);
     }
 
     const onSubmit = (e) => {
