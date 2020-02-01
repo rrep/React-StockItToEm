@@ -55,7 +55,7 @@ function HistoryGraph(props) {
 
         g.append("g")
             .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x))
+            .call(d3.axisBottom(x).scale(x).ticks(d3.timeWeek.every(2)))
             .select(".domain")
             .remove();
 
@@ -77,7 +77,6 @@ function HistoryGraph(props) {
             .attr("stroke-linecap", "round")
             .attr("stroke-width", 1.5)
             .attr("d", line);
-
     }
     //actual component
     return(
