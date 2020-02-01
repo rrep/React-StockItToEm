@@ -57,16 +57,15 @@ function HistoryGraph(props) {
                     .y(function(d) {return y(d.value)})
         
         //look through min and max values and create x-axis domain
-        x.domain(d3.extent(parsedData, function(d){ return d.date}));
+        x.domain(d3.extent(parsedData, function(d){ return d.date})).nice();
 
         //look through min and max values and create y-axis domain
-        y.domain(d3.extent(parsedData, function(d){ return d.value}));
+        y.domain(d3.extent(parsedData, function(d){ return d.value})).nice();
 
         g.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x).scale(x).ticks(d3.timeWeek.every(2)))
-            .select(".domain")
-            .remove();
+            .select(".domain");
 
         g.append("g")
             .call(d3.axisLeft(y))
@@ -78,14 +77,24 @@ function HistoryGraph(props) {
             .attr("text-anchor", "end")
             .text("Price ($)");
 
-        g.append("path")
-            .datum(parsedData)
-            .attr("fill", "none")
-            .attr("stroke", "steelblue")
-            .attr("stroke-linejoin", "round")
-            .attr("stroke-linecap", "round")
-            .attr("stroke-width", 1.5)
-            .attr("d", line);
+        const path = g
+			.append('path')
+			.attr('d', line(parsedData))
+			.attr('fill', 'none')
+			.attr('stroke', 'steelblue')
+			.attr('stroke-linejoin', 'round')
+			.attr('stroke-linecap', 'round')
+			.attr('stroke-width', 1.5);
+
+		const totalLength = path.node().getTotalLength();
+        
+        path
+			.attr('stroke-dasharray', totalLength + ' ' + totalLength)
+			.attr('stroke-dashoffset', -totalLength)
+			.transition()
+			.duration(2000)
+			.ease(d3.easeLinear)
+			.attr('stroke-dashoffset', 0);
     
             console.log("full draw chart method is run");
         }
