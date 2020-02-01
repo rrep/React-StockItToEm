@@ -36,7 +36,6 @@ function App() {
       const stockQuoteEndPoint = `${BASE_ALPHAVANTAGE_END_POINT}${ALPHAV_FUNCTION_QUERY}${symbol}${ALPHAV_API_KEY}`;
       const stockSearchEndPoint= `${BASE_ALPHAVANTAGE_END_POINT}${ALPHAV_SEARCH_QUERY}${keywords}${ALPHAV_API_KEY}`;
       const timeSeriesEndPoint = `${BASE_ALPHAVANTAGE_END_POINT}${ALPHAV_TIME_SERIES_QUERY}${symbol}${ALPHAV_API_KEY}`;
-      console.log(timeSeriesEndPoint);
       
       //fetch symbol quote
       fetch(stockQuoteEndPoint).then((response)=>{
@@ -61,7 +60,6 @@ function App() {
         {"id":2,"title":"Hotdog Fest, How many is too many?", "author":"Beets Silman"},
         {"id":3,"title":"Centipedes? In My Hotdogs?", "author":"Morlikelee Thanyutheenk"}
     ]);
-    console.log(newsItems);
     }
   }
 
@@ -73,11 +71,10 @@ function App() {
         <NewsFeed newsItems={newsItems} currentSearch={currentSearch}/>
         <div className ="main">
           <SymbolSearch searchClick={searchClick}/> 
-          <br/><br/>
-          <Quote currentQuote={currentQuote}/>
           <br/>
           {Object.entries(timeSeries).length > 0? <HistoryGraph timeSeries={timeSeries}></HistoryGraph>:null}
         </div>
+        <Quote currentQuote={currentQuote}/>
       </section>
     </div>
   );
