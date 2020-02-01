@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as d3 from "d3";
 
 function HistoryGraph(props) {
+
+    useEffect(
+        () => {
+            drawChart(parseData(props.timeSeries))
+        }, 
+        [ props.timeSeries ],
+        );
 
     //take in data object and process it to make an array for the line chart
     function parseData(data){
@@ -86,7 +93,6 @@ function HistoryGraph(props) {
     return(
         <div>
             <svg></svg>
-            {drawChart(parseData(props.timeSeries))}
         </div>
     )
 }
