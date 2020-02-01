@@ -19,6 +19,7 @@ function HistoryGraph(props) {
     //drawchart
     function drawChart(parsedData){
 
+
         //define width and height of the chart (draw space)
         const svgWidth = 600, svgHeight = 400;
         const margin = { top: 20, right: 20, bottom:30, left:50}
@@ -28,7 +29,8 @@ function HistoryGraph(props) {
         //select the svg element, set width and height attributes
         const svg = d3.select('svg')
                 .attr('width', svgWidth)
-                .attr('height', svgHeight);
+                .attr('height', svgHeight)
+                .attr("class","line-chart")
 
         //add a group tag and transform
         const g = svg.append('g')
@@ -77,11 +79,13 @@ function HistoryGraph(props) {
             .attr("stroke-linecap", "round")
             .attr("stroke-width", 1.5)
             .attr("d", line);
-    }
+    
+            console.log("full draw chart method is run");
+        }
     //actual component
     return(
         <div>
-            <svg className="line-chart"></svg>
+            <svg></svg>
             {drawChart(parseData(props.timeSeries))}
         </div>
     )
