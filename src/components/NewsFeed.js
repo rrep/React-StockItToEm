@@ -13,7 +13,7 @@ function NewsFeed(props) {
                 </div>
                 )
             }
-                    
+             <p className="news-api">Powered by NewsAPI</p>       
             </div>
     )
 }

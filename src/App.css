@@ -22,6 +22,11 @@ html {
   margin: auto;
 }
 
+.news-api{
+  font-size: x-small;
+  color: white;
+}
+
 .quote-header{
   color: white;
 }
