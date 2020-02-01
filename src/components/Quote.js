@@ -3,7 +3,7 @@ import React from 'react'
 function Quote(props) {
     
     if (Object.keys(props.currentQuote).length !== 0) {
-    return(
+    return(<div><h2 className="quote-header">Today's Quote</h2>
         <div className="stockQuote">
             <table>
                 <thead></thead>
@@ -26,6 +26,7 @@ function Quote(props) {
                 </tr>
                 </tbody>
             </table>
+        </div>
         </div>
     )}
     else{

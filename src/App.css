@@ -22,6 +22,10 @@ html {
   margin: auto;
 }
 
+.quote-header{
+  color: white;
+}
+
 .NewsFeed{
   float: left;
   height: max-content;
