@@ -3,6 +3,7 @@ import * as d3 from "d3";
 
 function HistoryGraph(props) {
 
+    //drawchart after render and time-series is received
     useEffect(
         () => {
             drawChart(parseData(props.timeSeries))
@@ -62,6 +63,7 @@ function HistoryGraph(props) {
         //look through min and max values and create y-axis domain
         y.domain(d3.extent(parsedData, function(d){ return d.value})).nice();
 
+        
         g.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x).scale(x).ticks(d3.timeWeek.every(2)))
@@ -95,8 +97,6 @@ function HistoryGraph(props) {
 			.duration(2000)
 			.ease(d3.easeLinear)
 			.attr('stroke-dashoffset', 0);
-    
-            console.log("full draw chart method is run");
         }
     //actual component
     return(
