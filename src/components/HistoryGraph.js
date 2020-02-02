@@ -3,7 +3,7 @@ import * as d3 from "d3";
 
 function HistoryGraph(props) {
 
-    //drawchart after render and time-series is received
+    //call drawchart function after initial insertion into the DOM and timeSeries is changed
     useEffect(
         () => {
             drawChart(parseData(props.timeSeries))
@@ -11,7 +11,7 @@ function HistoryGraph(props) {
         [ props.timeSeries ],
         );
 
-    //take in data object and process it to make an array for the line chart
+    //take in data object and process it to make an array for the line chart values
     function parseData(data){
         const dataArray = [];
         for (var i in data){
@@ -27,14 +27,13 @@ function HistoryGraph(props) {
     //drawchart
     function drawChart(parsedData){
 
-
         //define width and height of the chart (draw space)
         const svgWidth = 600, svgHeight = 400;
         const margin = { top: 20, right: 20, bottom:30, left:50}
         const width = svgWidth - margin.left - margin.right;
         const height = svgHeight - margin.top - margin.bottom;
 
-        //select the svg element, set width and height attributes
+        //select the svg element, set width and height attributes of svg element
         const svg = d3.select('svg')
                 .attr('width', svgWidth)
                 .attr('height', svgHeight)
@@ -52,23 +51,24 @@ function HistoryGraph(props) {
         const y = d3.scaleLinear()
                     .rangeRound([height, 0]);
 
-        //draw lines
+        //used to generate the line drawing coordinates for the svg
         const line = d3.line()
                     .x(function(d) {return x(d.date)})
                     .y(function(d) {return y(d.value)})
         
-        //look through min and max values and create x-axis domain
+        //look through all values of { ..., date: } and retrieve min and max to create x-axis domain
         x.domain(d3.extent(parsedData, function(d){ return d.date})).nice();
 
-        //look through min and max values and create y-axis domain
+        //look through all values of { ..., value: } and retrieve min and max to create y-axis domain
         y.domain(d3.extent(parsedData, function(d){ return d.value})).nice();
 
-        
+        //add and draw x-axis to draw area, modifying the interval for labelling
         g.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x).scale(x).ticks(d3.timeWeek.every(2)))
             .select(".domain");
 
+        //add and draw y axis to draw area
         g.append("g")
             .call(d3.axisLeft(y))
             .append("text")
@@ -79,6 +79,7 @@ function HistoryGraph(props) {
             .attr("text-anchor", "end")
             .text("Price ($)");
 
+        //add and draw the line that represents all values from parsedData
         const path = g
 			.append('path')
 			.attr('d', line(parsedData))
@@ -88,17 +89,20 @@ function HistoryGraph(props) {
 			.attr('stroke-linecap', 'round')
 			.attr('stroke-width', 1.5);
 
+        //find total length of all points of the line chart line
 		const totalLength = path.node().getTotalLength();
         
+        //animate the line chart line drawing using path information
         path
-			.attr('stroke-dasharray', totalLength + ' ' + totalLength)
-			.attr('stroke-dashoffset', -totalLength)
-			.transition()
-			.duration(2000)
-			.ease(d3.easeLinear)
-			.attr('stroke-dashoffset', 0);
+            .attr('stroke-dasharray', totalLength + ' ' + totalLength)
+            .attr('stroke-dashoffset', -totalLength)
+            .transition()
+            .duration(2000)
+            .ease(d3.easeLinear)
+            .attr('stroke-dashoffset', 0);
         }
-    //actual component
+
+    //actual component for react
     return(
         <div>
             <svg></svg>
