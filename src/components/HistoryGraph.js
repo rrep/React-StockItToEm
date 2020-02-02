@@ -3,7 +3,7 @@ import * as d3 from "d3";
 
 function HistoryGraph(props) {
 
-    //call drawchart function after initial insertion into the DOM and timeSeries is changed
+    //call drawchart function after initial insertion of component into the DOM and timeSeries is changed
     useEffect(
         () => {
             drawChart(parseData(props.timeSeries))
@@ -81,16 +81,16 @@ function HistoryGraph(props) {
 
         //add and draw the line that represents all values from parsedData
         const path = g
-			.append('path')
-			.attr('d', line(parsedData))
-			.attr('fill', 'none')
-			.attr('stroke', 'steelblue')
-			.attr('stroke-linejoin', 'round')
-			.attr('stroke-linecap', 'round')
-			.attr('stroke-width', 1.5);
+            .append('path')
+            .attr('d', line(parsedData))
+            .attr('fill', 'none')
+            .attr('stroke', 'steelblue')
+            .attr('stroke-linejoin', 'round')
+            .attr('stroke-linecap', 'round')
+            .attr('stroke-width', 1.5);
 
         //find total length of all points of the line chart line
-		const totalLength = path.node().getTotalLength();
+        const totalLength = path.node().getTotalLength();
         
         //animate the line chart line drawing using path information
         path
