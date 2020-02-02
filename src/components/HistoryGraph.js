@@ -56,10 +56,10 @@ function HistoryGraph(props) {
                     .x(function(d) {return x(d.date)})
                     .y(function(d) {return y(d.value)})
         
-        //look through all values of { ..., date: } and retrieve min and max to create x-axis domain
+        //look through all objects in parsedData for object.date and retrieve min and max to create x-axis domain
         x.domain(d3.extent(parsedData, function(d){ return d.date})).nice();
 
-        //look through all values of { ..., value: } and retrieve min and max to create y-axis domain
+        //look through all objects in parsedData for object.value and retrieve min and max to create y-axis domain
         y.domain(d3.extent(parsedData, function(d){ return d.value})).nice();
 
         //add and draw x-axis to draw area, modifying the interval for labelling
