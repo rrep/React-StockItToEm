@@ -22,7 +22,7 @@ function App() {
   const ALPHAV_TIME_SERIES_QUERY = "TIME_SERIES_DAILY";
   
   const BASE_NEWSAPI_END_POINT = "https://newsapi.org/v2/everything?q="; //add symbol from search
-  const BASE_NEWSAPI_KEY="from=2020-01-29&sortBy=popularity&apiKey=17b781dab8984272be12d4b8b3f6442d";
+  const BASE_NEWSAPI_KEY="from=2020-01-29&sortBy=popularity&apiKey=----------------------------------";
 
 
   const searchClick = (searchString) =>{
